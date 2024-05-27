@@ -5,23 +5,14 @@ namespace GameOfLifeLibraryTest
     [TestClass]
     public class CellTests
     {
-        [TestMethod]
-        public void CellWith3NeighborsWillLive()
+        [DataTestMethod]
+        [DataRow(0, false)]
+        [DataRow(1, false)]
+        [DataRow(3, true)]
+        public void CellNeighbors(int numberOfNeighbors, bool expected)
         {
             var cell = new Cell();
-            Assert.IsTrue(cell.NextState(3));
-        }
-        [TestMethod]
-        public void CellWith0NeighborsDies()
-        {
-            var cell = new Cell();
-            Assert.IsFalse(cell.NextState(0));
-        }
-        [TestMethod]
-        public void CellWith1NeighborsDies()
-        {
-            var cell = new Cell();
-            Assert.IsFalse(cell.NextState(1));
+            Assert.AreEqual(expected, cell.NextState(numberOfNeighbors), $"Cell with {numberOfNeighbors} neighbors should return {expected}");
         }
         [TestMethod]
         public void NewCellIsAlive()
