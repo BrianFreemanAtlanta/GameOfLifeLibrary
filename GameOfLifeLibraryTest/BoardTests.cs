@@ -16,7 +16,15 @@ public class BoardTests
     public void CanAddCellToBoard()
     {
         var board = new Board();
-        board.Cells.Add(new Cell());
+        board.Add(new Cell());
         Assert.AreEqual(1, board.Cells.Count);
+    }
+    [TestMethod]
+    public void CountOnlyLiveCells()
+    {
+        var board = new Board();
+        Cell cell = new Cell() { IsAlive=false};
+        board.Cells.Add(cell);
+        Assert.AreEqual(0, board.Cells.Count);
     }
 }

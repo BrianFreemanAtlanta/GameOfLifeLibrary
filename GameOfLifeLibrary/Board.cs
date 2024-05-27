@@ -1,4 +1,5 @@
-﻿namespace GameOfLifeLibrary;
+﻿
+namespace GameOfLifeLibrary;
 
 public class Board
 {
@@ -9,5 +10,17 @@ public class Board
         cells = new List<Cell>();
     }
 
-    public List<Cell> Cells { get => cells; set => cells = value; }
+    public List<Cell> Cells
+    {
+        get
+        {
+            return cells.Where(c => c.IsAlive).ToList();
+        }
+        set => cells = value;
+    }
+
+    public void Add(Cell cell)
+    {
+        cells.Add(cell);
+    }
 }
