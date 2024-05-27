@@ -33,5 +33,11 @@ namespace GameOfLifeLibraryTest
             var cell = new Cell();
             Assert.IsTrue(cell.IsAlive);
         }
+        [TestMethod]
+        public void NewCellHasNeighborCount0()
+        {
+            var cell = new Cell();
+            Assert.AreEqual(0, cell.GetNumberOfNeighbors());
+        }
     }
 }

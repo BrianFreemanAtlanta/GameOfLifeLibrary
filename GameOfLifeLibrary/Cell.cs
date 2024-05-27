@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace GameOfLifeLibrary
 {
     public class Cell
@@ -15,6 +16,11 @@ namespace GameOfLifeLibrary
             if (numberOfNeighbors == 3) return true;
             if (IsAlive && numberOfNeighbors == 2) return true;
             return false;
+        }
+
+        public int GetNumberOfNeighbors()
+        {
+            return 0;
         }
     }
 }
