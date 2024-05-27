@@ -12,6 +12,12 @@ namespace GameOfLifeLibraryTest
             Assert.IsTrue(cell.NextState(3));
         }
         [TestMethod]
+        public void CellWith0NeighborsDies()
+        {
+            var cell = new Cell();
+            Assert.IsFalse(cell.NextState(0));
+        }
+        [TestMethod]
         public void NewCellIsAlive()
         {
             var cell = new Cell();
