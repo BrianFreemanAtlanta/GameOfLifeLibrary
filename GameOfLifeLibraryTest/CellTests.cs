@@ -27,7 +27,7 @@ namespace GameOfLifeLibraryTest
         public void NewCellIsAlive()
         {
             var cell = new Cell();
-            Assert.IsTrue(cell.IsAlive());
+            Assert.IsTrue(cell.IsAlive);
         }
     }
 }
