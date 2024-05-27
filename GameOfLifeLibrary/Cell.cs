@@ -12,13 +12,9 @@ namespace GameOfLifeLibrary
 
          public bool NextState(int numberOfNeighbors)
         {
-            if(numberOfNeighbors < 2) { return false; }
-            if(numberOfNeighbors > 3) {  return false; }
-            if (!IsAlive && numberOfNeighbors ==2)
-            {
-                return false;
-            }
-            return true;
+            if (numberOfNeighbors == 3) return true;
+            if (IsAlive && numberOfNeighbors == 2) return true;
+            return false;
         }
     }
 }
