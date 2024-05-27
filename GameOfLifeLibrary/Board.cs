@@ -21,6 +21,7 @@ public class Board
 
     public void Add(Cell cell)
     {
+        cell.Board = this;
         cells.Add(cell);
     }
 }

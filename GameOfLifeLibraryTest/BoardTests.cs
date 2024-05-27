@@ -20,6 +20,14 @@ public class BoardTests
         Assert.AreEqual(1, board.Cells.Count);
     }
     [TestMethod]
+    public void CellhasReferenceToBoard()
+    {
+        var board = new Board();
+        Cell cell = new Cell();
+        board.Add(cell);
+        Assert.AreEqual(board, cell.Board);
+    }
+    [TestMethod]
     public void CountOnlyLiveCells()
     {
         var board = new Board();

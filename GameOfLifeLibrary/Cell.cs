@@ -6,6 +6,7 @@ public class Cell
 
     public bool IsAlive {  get; set; }
     public Location Location { get; set; }
+    public Board? Board { get; set; }
 
     public Cell()
     {
