@@ -2,13 +2,13 @@
 
 public class Cell
 {
-    private List<Cell> _neighbors;
+    private readonly List<Cell> _neighbors;
 
     public bool IsAlive {  get; set; }
     public Cell()
     {
         IsAlive = true;
-        _neighbors = new List<Cell>();
+        _neighbors = [];
     }
 
      public bool NextState(int numberOfNeighbors)
