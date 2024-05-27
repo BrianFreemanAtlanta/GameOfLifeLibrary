@@ -9,6 +9,11 @@ namespace GameOfLifeLibraryTest
         [DataRow(0, false)]
         [DataRow(1, false)]
         [DataRow(3, true)]
+        [DataRow(4, false)]
+        [DataRow(5, false)]
+        [DataRow(6, false)]
+        [DataRow(7, false)]
+        [DataRow(8, false)]
         public void CellNeighbors(int numberOfNeighbors, bool expected)
         {
             var cell = new Cell();
