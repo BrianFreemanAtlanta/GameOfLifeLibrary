@@ -1,4 +1,5 @@
 using GameOfLifeLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GameOfLifeLibraryTest
 {
@@ -8,6 +9,7 @@ namespace GameOfLifeLibraryTest
         [DataTestMethod]
         [DataRow(0, false)]
         [DataRow(1, false)]
+        [DataRow(2, true)]
         [DataRow(3, true)]
         [DataRow(4, false)]
         [DataRow(5, false)]
