@@ -1,4 +1,5 @@
 ﻿using GameOfLifeLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GameOfLifeLibraryTest;
 
@@ -10,5 +11,12 @@ public class BoardTests
     {
         var board = new Board();
         Assert.AreEqual(0, board.Cells.Count);
+    }
+    [TestMethod]
+    public void CanAddCellToBoard()
+    {
+        var board = new Board();
+        board.Cells.Add(new Cell());
+        Assert.AreEqual(1, board.Cells.Count);
     }
 }
