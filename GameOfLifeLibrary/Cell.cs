@@ -15,7 +15,7 @@ namespace GameOfLifeLibrary
 
         public bool NextState(int numberOfNeighbors)
         {
-            if(numberOfNeighbors == 0) { return false; }
+            if(numberOfNeighbors < 2) { return false; }
             return true;
         }
     }
