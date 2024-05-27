@@ -14,6 +14,10 @@ namespace GameOfLifeLibrary
         {
             if(numberOfNeighbors < 2) { return false; }
             if(numberOfNeighbors > 3) {  return false; }
+            if (!IsAlive && numberOfNeighbors ==2)
+            {
+                return false;
+            }
             return true;
         }
     }

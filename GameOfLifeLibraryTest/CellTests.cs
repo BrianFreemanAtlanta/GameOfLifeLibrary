@@ -22,6 +22,12 @@ namespace GameOfLifeLibraryTest
             Assert.AreEqual(expected, cell.NextState(numberOfNeighbors), $"Cell with {numberOfNeighbors} neighbors should return {expected}");
         }
         [TestMethod]
+        public void DeadCell2NeighborsStaysDead()
+        {
+            var cell = new Cell() { IsAlive = false };
+            Assert.AreEqual(false, cell.NextState(2));
+        }
+        [TestMethod]
         public void NewCellIsAlive()
         {
             var cell = new Cell();
