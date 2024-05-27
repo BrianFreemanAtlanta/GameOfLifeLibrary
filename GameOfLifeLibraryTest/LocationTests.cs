@@ -26,10 +26,10 @@ public class LocationTests
     [TestMethod]
     public void CreateLocationAtCoordinateWithXPastIntMax()
     {
-        List<int> x1 = new List<int> { int.MaxValue, 5 };
-        var location = new Location(x1, 10);
+        List<int> x = new List<int> { int.MaxValue, 5 };
+        var location = new Location(x, 10);
         Assert.IsNotNull(location);
-        Assert.AreEqual(x1, location.X);
+        Assert.AreEqual(x, location.X);
         Assert.AreEqual(10, location.Y);
     }
 }
