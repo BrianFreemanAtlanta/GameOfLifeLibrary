@@ -55,4 +55,12 @@ public class CellTests
         cell.GetNumberOfNeighbors();
         Assert.AreEqual(0, cell.GetNumberOfNeighbors());
     }
+    [TestMethod]
+    public void CreateCellAtLocation()
+    {
+        var x = new List<int>() { 0 };
+        var y = new List<int>() { 0 };
+        var cell = new Cell(x,y);
+        Assert.AreEqual(x, cell.Location.X);
+    }
 }
