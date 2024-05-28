@@ -25,4 +25,5 @@ public class MagnitudeTests
         var magnitude = new Magnitude(5);
         CollectionAssert.AreEquivalent(new List<int>() { 5 }, magnitude.Numbers());
     }
+
 }

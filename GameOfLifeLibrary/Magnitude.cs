@@ -16,13 +16,11 @@ namespace GameOfLifeLibrary;
 /// </summary>
 public class Magnitude
 {
-    private int number;
     private List<int> numbers;
 
     public Magnitude(int number)
     {
         this.numbers = [number];
-        this.number = number;
     }
 
     public Magnitude(List<int> numbers)
@@ -47,7 +45,7 @@ public class Magnitude
 
     public int ToInt()
     {
-        return number;
+        return numbers.Last();
     }
 
     public override string? ToString()
