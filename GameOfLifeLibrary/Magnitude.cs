@@ -45,6 +45,7 @@ public class Magnitude
 
     public int ToInt()
     {
+        if (numbers.Count > 1) { throw new OverflowException(); }
         return numbers.Last();
     }
 

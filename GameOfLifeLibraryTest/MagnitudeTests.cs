@@ -25,5 +25,12 @@ public class MagnitudeTests
         var magnitude = new Magnitude(5);
         CollectionAssert.AreEquivalent(new List<int>() { 5 }, magnitude.Numbers());
     }
+    [TestMethod]
+    public void TwoNumbersToIntegerThrowsError()
+    {
+        var numbers = new List<int>() { 1, 5 };
+        var magnitude = new Magnitude(numbers);
+        Assert.ThrowsException<OverflowException>(() => magnitude.ToInt());
 
+    }
 }
