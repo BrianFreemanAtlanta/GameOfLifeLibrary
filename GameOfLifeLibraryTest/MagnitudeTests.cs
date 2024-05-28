@@ -17,7 +17,12 @@ public class MagnitudeTests
     {
         var numbers = new List<int>() { 1, 5 };
         var magnitude = new Magnitude(numbers);
-        Assert.AreEqual(numbers, magnitude.Numbers());
-
+        CollectionAssert.AreEqual(numbers, magnitude.Numbers());
+    }
+    [TestMethod]
+    public void SingleDigitReturnsSingleNumber()
+    {
+        var magnitude = new Magnitude(5);
+        CollectionAssert.AreEquivalent(new List<int>() { 5 }, magnitude.Numbers());
     }
 }

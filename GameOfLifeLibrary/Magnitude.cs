@@ -21,7 +21,7 @@ public class Magnitude
 
     public Magnitude(int number)
     {
-        this.numbers = new List<int>();
+        this.numbers = [number];
         this.number = number;
     }
 
