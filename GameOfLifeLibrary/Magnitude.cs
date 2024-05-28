@@ -1,4 +1,6 @@
 ﻿
+
+
 namespace GameOfLifeLibrary;
 
 /// <summary>
@@ -15,10 +17,17 @@ namespace GameOfLifeLibrary;
 public class Magnitude
 {
     private int number;
+    private List<int> numbers;
 
     public Magnitude(int number)
     {
+        this.numbers = new List<int>();
         this.number = number;
+    }
+
+    public Magnitude(List<int> numbers)
+    {
+        this.numbers = numbers;
     }
 
     public override bool Equals(object? obj)
@@ -29,6 +38,11 @@ public class Magnitude
     public override int GetHashCode()
     {
         return base.GetHashCode();
+    }
+
+    public List<int> Numbers()
+    {
+       return numbers;
     }
 
     public int ToInt()

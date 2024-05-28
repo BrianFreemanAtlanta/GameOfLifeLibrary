@@ -12,4 +12,12 @@ public class MagnitudeTests
         var magnitude = new Magnitude(5);
         Assert.AreEqual(5, magnitude.ToInt());
     }
+    [TestMethod]
+    public void CreateMagnitudeWithTwoNumbers()
+    {
+        var numbers = new List<int>() { 1, 5 };
+        var magnitude = new Magnitude(numbers);
+        Assert.AreEqual(numbers, magnitude.Numbers());
+
+    }
 }
