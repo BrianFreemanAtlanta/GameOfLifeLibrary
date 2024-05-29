@@ -88,4 +88,11 @@ public class MagnitudeTests
         var magnitude2 = new Magnitude([1, 5]);
         Assert.IsFalse(magnitude1.Equals(magnitude2));
     }
+    [TestMethod]
+    public void EqualsSameMultiDigitsIsTrue()
+    {
+        var magnitude1 = new Magnitude([3,2,5]);
+        var magnitude2 = new Magnitude([3,2,5]);
+        Assert.IsTrue(magnitude1.Equals(magnitude2));
+    }
 }
