@@ -72,4 +72,6 @@ public class Magnitude
         sb.Remove(sb.Length - 1, 1);
         return sb.ToString();
     }
+    public static bool operator == (Magnitude magnitude1, Magnitude magnitude2) { return magnitude1.Equals(magnitude2); }
+    public static bool operator != (Magnitude magnitude1, Magnitude magnitude2) { return !magnitude1.Equals(magnitude2); }
 }

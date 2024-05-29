@@ -68,6 +68,13 @@ public class MagnitudeTests
         Assert.IsTrue(magnitude1.Equals(magnitude2));
     }
     [TestMethod]
+    public void DoubleEqualsWithSameOneNumberIsTrue()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(5);
+        Assert.IsTrue(magnitude1 == magnitude2);
+    }
+    [TestMethod]
     public void EqualsWithDifferentSingleNumbersIsFalse()
     {
         var magnitude1 = new Magnitude(5);
