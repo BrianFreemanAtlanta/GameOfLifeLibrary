@@ -31,6 +31,11 @@ public class Magnitude
 
     public override bool Equals(object? obj)
     {
+        if(obj is Magnitude magnitude)
+        {
+            return magnitude.numbers.Last().Equals(this.numbers.Last());
+        }
+
         return base.Equals(obj);
     }
 

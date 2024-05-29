@@ -59,6 +59,12 @@ public class MagnitudeTests
         var magnitude = new Magnitude(numbers);
         numbers.Add(100);
         CollectionAssert.AreEqual(expected, magnitude.Numbers());
-
+    }
+    [TestMethod]
+    public void EqualsWithOneNumber()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(5);
+        Assert.IsTrue(magnitude1.Equals(magnitude2));
     }
 }
