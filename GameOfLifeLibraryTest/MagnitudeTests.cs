@@ -1,6 +1,5 @@
 ﻿
 using GameOfLifeLibrary;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GameOfLifeLibraryTest;
 [TestClass]
@@ -10,12 +9,12 @@ public class MagnitudeTests
     public void CreateMagnitudeWithSingleNumber()
     {
         var magnitude = new Magnitude(5);
-        Assert.AreEqual(5, magnitude.ToInt());
+        Assert.AreEqual((uint)5, magnitude.ToUint32());
     }
     [TestMethod]
     public void CreateMagnitudeWithTwoNumbers()
     {
-        var numbers = new List<int>() { 1, 5 };
+        var numbers = new List<uint>() { 1, 5 };
         var magnitude = new Magnitude(numbers);
         CollectionAssert.AreEqual(numbers, magnitude.Numbers());
     }
@@ -23,14 +22,19 @@ public class MagnitudeTests
     public void SingleDigitReturnsSingleNumber()
     {
         var magnitude = new Magnitude(5);
-        CollectionAssert.AreEquivalent(new List<int>() { 5 }, magnitude.Numbers());
+        CollectionAssert.AreEquivalent(new List<uint>() { 5 }, magnitude.Numbers());
     }
     [TestMethod]
     public void TwoNumbersToIntegerThrowsError()
     {
-        var numbers = new List<int>() { 1, 5 };
+        var numbers = new List<uint>() { 1, 5 };
         var magnitude = new Magnitude(numbers);
-        Assert.ThrowsException<OverflowException>(() => magnitude.ToInt());
-
+        Assert.ThrowsException<OverflowException>(() => magnitude.ToUint32());
+    }
+    [TestMethod]
+    public void CreateUintMaxNumber()
+    {
+        var magnitude = new Magnitude(uint.MaxValue);
+        Assert.AreEqual(uint.MaxValue, magnitude.ToUint32());
     }
 }

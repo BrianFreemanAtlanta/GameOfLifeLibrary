@@ -16,14 +16,14 @@ namespace GameOfLifeLibrary;
 /// </summary>
 public class Magnitude
 {
-    private List<int> numbers;
+    private List<uint> numbers;
 
-    public Magnitude(int number)
+    public Magnitude(uint number)
     {
         this.numbers = [number];
     }
 
-    public Magnitude(List<int> numbers)
+    public Magnitude(List<uint> numbers)
     {
         this.numbers = numbers;
     }
@@ -38,12 +38,12 @@ public class Magnitude
         return base.GetHashCode();
     }
 
-    public List<int> Numbers()
+    public List<uint> Numbers()
     {
        return numbers;
     }
 
-    public int ToInt()
+    public uint ToUint32()
     {
         if (numbers.Count > 1) { throw new OverflowException(); }
         return numbers.Last();
