@@ -44,4 +44,11 @@ public class MagnitudeTests
         var magnitude = new Magnitude(5);
         Assert.AreEqual("5", magnitude.ToString());
     }
+    [TestMethod]
+    public void ToStringTwoDigit()
+    {
+        var numbers = new List<uint>() { 1, 5 };
+        var magnitude = new Magnitude(numbers);
+        Assert.AreEqual("1;5", magnitude.ToString());
+    }
 }

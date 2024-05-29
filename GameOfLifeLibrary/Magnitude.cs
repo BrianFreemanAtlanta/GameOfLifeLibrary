@@ -53,14 +53,13 @@ public class Magnitude
 
     public override string? ToString()
     {
-        //StringBuilder sb = new StringBuilder();
-        //foreach (var number in numbers)
-        //{
-        //    sb.Append(number.ToString());
-        //    sb.Append(';');
-        //}
-        //sb.Remove(sb.Length - 1, 1);
-        //return sb.ToString();
-        return numbers.Last().ToString();
+        StringBuilder sb = new StringBuilder();
+        foreach (var number in numbers)
+        {
+            sb.Append(number);
+            sb.Append(';');
+        }
+        sb.Remove(sb.Length - 1, 1);
+        return sb.ToString();
     }
 }
