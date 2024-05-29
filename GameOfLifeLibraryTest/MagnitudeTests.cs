@@ -51,4 +51,14 @@ public class MagnitudeTests
         var magnitude = new Magnitude(numbers);
         Assert.AreEqual("1;5", magnitude.ToString());
     }
+    [TestMethod]
+    public void MagnitudeIsSeparateFromList()
+    {
+        var numbers = new List<uint>() { 1, 5 };
+        var expected = new List<uint>() { 1, 5 };
+        var magnitude = new Magnitude(numbers);
+        numbers.Add(100);
+        CollectionAssert.AreEqual(expected, magnitude.Numbers());
+
+    }
 }

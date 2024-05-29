@@ -18,16 +18,15 @@ namespace GameOfLifeLibrary;
 /// </summary>
 public class Magnitude
 {
-    private readonly List<uint> numbers;
+    private readonly List<uint> numbers = [];
 
     public Magnitude(uint number)
     {
         this.numbers = [number];
     }
 
-    public Magnitude(List<uint> numbers)
-    {
-        this.numbers = numbers;
+    public Magnitude(List<uint> numbers) {
+        this.numbers.AddRange(numbers);
     }
 
     public override bool Equals(object? obj)
