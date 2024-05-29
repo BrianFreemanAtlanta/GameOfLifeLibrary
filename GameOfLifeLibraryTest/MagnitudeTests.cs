@@ -1,5 +1,6 @@
 ﻿
 using GameOfLifeLibrary;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace GameOfLifeLibraryTest;
 [TestClass]
@@ -36,5 +37,11 @@ public class MagnitudeTests
     {
         var magnitude = new Magnitude(uint.MaxValue);
         Assert.AreEqual(uint.MaxValue, magnitude.ToUint32());
+    }
+    [TestMethod]
+    public void ToStringSingleDigit()
+    {
+        var magnitude = new Magnitude(5);
+        Assert.AreEqual("5", magnitude.ToString());
     }
 }

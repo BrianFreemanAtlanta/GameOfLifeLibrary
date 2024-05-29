@@ -1,6 +1,8 @@
 ﻿
 
 
+using System.Text;
+
 namespace GameOfLifeLibrary;
 
 /// <summary>
@@ -16,7 +18,7 @@ namespace GameOfLifeLibrary;
 /// </summary>
 public class Magnitude
 {
-    private List<uint> numbers;
+    private readonly List<uint> numbers;
 
     public Magnitude(uint number)
     {
@@ -51,6 +53,14 @@ public class Magnitude
 
     public override string? ToString()
     {
-        return base.ToString();
+        //StringBuilder sb = new StringBuilder();
+        //foreach (var number in numbers)
+        //{
+        //    sb.Append(number.ToString());
+        //    sb.Append(';');
+        //}
+        //sb.Remove(sb.Length - 1, 1);
+        //return sb.ToString();
+        return numbers.Last().ToString();
     }
 }
