@@ -61,10 +61,24 @@ public class MagnitudeTests
         CollectionAssert.AreEqual(expected, magnitude.Numbers());
     }
     [TestMethod]
-    public void EqualsWithOneNumber()
+    public void EqualsWithSameOneNumberIsTrue()
     {
         var magnitude1 = new Magnitude(5);
         var magnitude2 = new Magnitude(5);
         Assert.IsTrue(magnitude1.Equals(magnitude2));
+    }
+    [TestMethod]
+    public void EqualsWithDifferentSingleNumbersIsFalse()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(6);
+        Assert.IsFalse(magnitude1.Equals(magnitude2));
+    }
+    [TestMethod]
+    public void EqualsWithDifferentLengthNumbersIsFalse()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude([1,5]);
+        Assert.IsFalse(magnitude1.Equals(magnitude2));
     }
 }

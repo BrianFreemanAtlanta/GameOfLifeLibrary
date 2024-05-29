@@ -33,6 +33,12 @@ public class Magnitude
     {
         if(obj is Magnitude magnitude)
         {
+            if( numbers.Count != magnitude.numbers.Count) return false;
+
+            //for(int i = 0; i < numbers.Count; i++)
+            //{
+            //    if (numbers[i] != magnitude.numbers[i]) return false;
+            //}
             return magnitude.numbers.Last().Equals(this.numbers.Last());
         }
 
