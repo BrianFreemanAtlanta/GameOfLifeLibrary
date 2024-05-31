@@ -155,4 +155,11 @@ public class MagnitudeTests
         var magnitude2 = new Magnitude([3,2,5]);
         Assert.IsTrue(magnitude1.Equals(magnitude2));
     }
+    [TestMethod]
+    public void CreateNegativeUInt()
+    {
+        var magnitude = new Magnitude(5, true);
+        Assert.IsTrue(magnitude.IsNegative);
+        Assert.AreEqual((uint)5, magnitude.ToUint32());
+    }
 }

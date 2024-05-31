@@ -19,10 +19,11 @@ namespace GameOfLifeLibrary;
 public class Magnitude
 {
     private readonly List<uint> numbers = [];
-
-    public Magnitude(uint number)
+    public bool IsNegative = false;
+    public Magnitude(uint number, bool isNegative = false)
     {
         this.numbers = [number];
+        IsNegative = isNegative;
     }
 
     public Magnitude(List<uint> numbers) {
