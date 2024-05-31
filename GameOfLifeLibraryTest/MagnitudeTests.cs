@@ -75,6 +75,36 @@ public class MagnitudeTests
         Assert.IsTrue(magnitude1 == magnitude2);
     }
     [TestMethod]
+    public void EqualsObjectToNullIsFalse()
+    {
+        var magnitude1 = new Magnitude(5);
+        Assert.IsFalse(magnitude1.Equals(null));
+    }
+    [TestMethod]
+    public void DoubleEqualsObjectToNullIsFalse()
+    {
+        Magnitude? magnitude1 = new Magnitude(5);
+        Assert.IsFalse(magnitude1 == null);
+    }    
+    [TestMethod]
+    public void DoubleEqualsNullToNullIsTrue()
+    {
+        Magnitude? magnitude1 = null;
+        Assert.IsTrue(magnitude1 == null);
+    }
+    [TestMethod]
+    public void DoubleEqualsNullToObjectIsFalse()
+    {
+        Magnitude? magnitude1 = null;
+        var magnitude2 = new Magnitude(5);
+        Assert.IsFalse(magnitude1 == magnitude2);
+    }
+    //equals with null
+    //== with null
+    //!= single
+    //!= double
+    //!= with null
+    [TestMethod]
     public void EqualsWithDifferentSingleNumbersIsFalse()
     {
         var magnitude1 = new Magnitude(5);
