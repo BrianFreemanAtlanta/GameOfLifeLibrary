@@ -162,4 +162,16 @@ public class MagnitudeTests
         Assert.IsTrue(magnitude.IsNegative);
         Assert.AreEqual((uint)5, magnitude.ToUint32());
     }
+    [TestMethod]
+    public void CreateNegativeMultipleNumbers()
+    {
+        var magnitude = new Magnitude([2, 10, 5], true);
+        Assert.IsTrue(magnitude.IsNegative);
+    }
+    [TestMethod]
+    public void ToStringAddsNegativeSign()
+    {
+        var magnitude = new Magnitude(5, true);
+        Assert.AreEqual("-5", magnitude.ToString());
+    }
 }

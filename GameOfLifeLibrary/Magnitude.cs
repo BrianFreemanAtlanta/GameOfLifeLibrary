@@ -26,8 +26,10 @@ public class Magnitude
         IsNegative = isNegative;
     }
 
-    public Magnitude(List<uint> numbers) {
+    public Magnitude(List<uint> numbers, bool isNegative = false)
+    {
         this.numbers.AddRange(numbers);
+        IsNegative = isNegative;
     }
 
     public override bool Equals(object? obj)
@@ -72,7 +74,10 @@ public class Magnitude
 
     public override string? ToString()
     {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new();
+
+        if(IsNegative) sb.Append('-');
+
         foreach (var number in numbers)
         {
             sb.Append(number);
