@@ -174,4 +174,18 @@ public class MagnitudeTests
         var magnitude = new Magnitude(5, true);
         Assert.AreEqual("-5", magnitude.ToString());
     }
+    [TestMethod]
+    public void EqualsChecksSign()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(5, true); 
+        Assert.IsFalse(magnitude1.Equals(magnitude2));
+    }
+    [TestMethod]
+    public void DoubleEqualsChecksSign()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(5, true);
+        Assert.IsFalse(magnitude1 == magnitude2);
+    }
 }
