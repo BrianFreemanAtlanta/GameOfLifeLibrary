@@ -209,4 +209,11 @@ public class MagnitudeTests
         magnitude++;
         Assert.AreEqual(new Magnitude(4,true), magnitude);
     }
+    [TestMethod]
+    public void PlusPlusIncrementsLastNumber()
+    {
+        var magnitude = new Magnitude([1, 20]);
+        magnitude++;
+        Assert.AreEqual(new Magnitude([1, 21]), magnitude);
+    }
 }

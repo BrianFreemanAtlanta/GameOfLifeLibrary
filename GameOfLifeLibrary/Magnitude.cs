@@ -100,13 +100,27 @@ public class Magnitude
     }
     public static Magnitude operator ++(Magnitude magnitude)
     {
-        var number = magnitude.ToUint32();
+        uint number;
+        if (magnitude.numbers.Count>1)
+        {
+            number = magnitude.numbers.Last();
+
+        }else
+        { 
+            number = magnitude.ToUint32(); 
+        }
         if(magnitude.IsNegative)
         {
             number--;
         } else
         { 
             number++; 
+        }
+        if(magnitude.numbers.Count>1)
+        {
+            var list = magnitude.numbers;
+            list[^1] = number;
+            return new Magnitude(list, magnitude.IsNegative);
         }
         return new Magnitude(number, magnitude.IsNegative);
     }
