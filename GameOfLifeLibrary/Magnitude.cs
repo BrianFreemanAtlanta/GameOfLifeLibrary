@@ -101,7 +101,13 @@ public class Magnitude
     public static Magnitude operator ++(Magnitude magnitude)
     {
         var number = magnitude.ToUint32();
-        number++;
-        return new Magnitude(number);
+        if(magnitude.IsNegative)
+        {
+            number--;
+        } else
+        { 
+            number++; 
+        }
+        return new Magnitude(number, magnitude.IsNegative);
     }
 }

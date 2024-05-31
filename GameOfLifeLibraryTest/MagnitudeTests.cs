@@ -202,4 +202,11 @@ public class MagnitudeTests
         magnitude++;
         Assert.AreEqual(new Magnitude(6), magnitude);
     }
+    [TestMethod]
+    public void PlusPlusIncrementsNumberKeepsSign()
+    {
+        var magnitude = new Magnitude(5, true);
+        magnitude++;
+        Assert.AreEqual(new Magnitude(4,true), magnitude);
+    }
 }
