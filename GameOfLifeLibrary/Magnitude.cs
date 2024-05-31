@@ -47,7 +47,15 @@ public class Magnitude
 
     public override int GetHashCode()
     {
-        return base.GetHashCode();
+        int hash = 17;
+        unchecked
+        {
+            foreach (uint item in numbers)
+            {
+                hash = hash * 23 + item.GetHashCode();
+            }
+        }
+        return hash;
     }
 
     public List<uint> Numbers()
@@ -82,11 +90,5 @@ public class Magnitude
     }
     public static bool? operator != (Magnitude? magnitude1, Magnitude? magnitude2) { 
         return !(magnitude1 == magnitude2);
-        //if(magnitude1 is null)
-        //{
-        //    if (magnitude2 is null) return false;
-        //    return true;
-        //}
-        //return !magnitude1?.Equals(magnitude2); 
     }
 }

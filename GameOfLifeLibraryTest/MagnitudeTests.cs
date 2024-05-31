@@ -124,7 +124,7 @@ public class MagnitudeTests
     public void NotEqualsObjectToNullIsTrue()
     {
         var mag1 = new Magnitude(5);
-        Magnitude mag2 = null;
+        Magnitude? mag2 = null;
         Assert.IsTrue(mag1 != mag2);
     }
     [TestMethod]
