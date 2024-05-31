@@ -98,4 +98,10 @@ public class Magnitude
     public static bool? operator != (Magnitude? magnitude1, Magnitude? magnitude2) { 
         return !(magnitude1 == magnitude2);
     }
+    public static Magnitude operator ++(Magnitude magnitude)
+    {
+        var number = magnitude.ToUint32();
+        number++;
+        return new Magnitude(number);
+    }
 }

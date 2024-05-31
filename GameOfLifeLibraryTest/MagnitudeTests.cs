@@ -195,4 +195,11 @@ public class MagnitudeTests
         var hash2 = new Magnitude(5, true).GetHashCode();
         Assert.AreNotEqual(hash1, hash2);
     }
+    [TestMethod]
+    public void PlusPlusIncrementsNumber()
+    {
+        var magnitude = new Magnitude(5);
+        magnitude++;
+        Assert.AreEqual(new Magnitude(6), magnitude);
+    }
 }
