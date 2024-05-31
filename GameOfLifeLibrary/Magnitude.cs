@@ -81,11 +81,12 @@ public class Magnitude
         return magnitude1?.Equals(magnitude2); 
     }
     public static bool? operator != (Magnitude? magnitude1, Magnitude? magnitude2) { 
-        if(magnitude1 is null)
-        {
-            if (magnitude2 is null) return false;
-            return true;
-        }
-        return !magnitude1?.Equals(magnitude2); 
+        return !(magnitude1 == magnitude2);
+        //if(magnitude1 is null)
+        //{
+        //    if (magnitude2 is null) return false;
+        //    return true;
+        //}
+        //return !magnitude1?.Equals(magnitude2); 
     }
 }

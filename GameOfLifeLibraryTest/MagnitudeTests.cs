@@ -99,11 +99,34 @@ public class MagnitudeTests
         var magnitude2 = new Magnitude(5);
         Assert.IsFalse(magnitude1 == magnitude2);
     }
-    //equals with null
-    //== with null
-    //!= single
-    //!= double
-    //!= with null
+    [TestMethod]
+    public void NotEqualsSameMagnitudeIsFalse()
+    {
+        var magnitude1 = new Magnitude(5);
+        var magnitude2 = new Magnitude(5);
+        Assert.IsFalse(magnitude1 != magnitude2);
+    }
+    [TestMethod]
+    public void NotEqualsDiffMagnitudeIsTrue()
+    {
+        var mag1 = new Magnitude(5);
+        var mag2 = new Magnitude(10);
+        Assert.IsTrue(mag1 != mag2);
+    }
+    [TestMethod]
+    public void NotEqualsNullToObjectIsTrue()
+    {
+        Magnitude? mag1 = null;
+        var mag2 = new Magnitude(5);
+        Assert.IsTrue(mag1 != mag2);
+    }
+    [TestMethod]
+    public void NotEqualsObjectToNullIsTrue()
+    {
+        var mag1 = new Magnitude(5);
+        Magnitude mag2 = null;
+        Assert.IsTrue(mag1 != mag2);
+    }
     [TestMethod]
     public void EqualsWithDifferentSingleNumbersIsFalse()
     {
