@@ -188,4 +188,11 @@ public class MagnitudeTests
         var magnitude2 = new Magnitude(5, true);
         Assert.IsFalse(magnitude1 == magnitude2);
     }
+    [TestMethod]
+    public void GetHashUsesSign()
+    {
+        var hash1 = new Magnitude(5).GetHashCode();
+        var hash2 = new Magnitude(5, true).GetHashCode();
+        Assert.AreNotEqual(hash1, hash2);
+    }
 }

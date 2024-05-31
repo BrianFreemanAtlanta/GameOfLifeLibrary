@@ -53,6 +53,7 @@ public class Magnitude
         int hash = 17;
         unchecked
         {
+            hash = hash * 23 + IsNegative.GetHashCode();
             foreach (uint item in numbers)
             {
                 hash = hash * 23 + item.GetHashCode();
