@@ -35,4 +35,22 @@ public class BoardTests
         board.Cells.Add(cell);
         Assert.AreEqual(0, board.Cells.Count);
     }
+    [TestMethod]
+    public void BoardGetCellReturnsCell()
+    {
+        var cell = new Cell(5, 10);
+        var board = new Board();
+        board.Add(cell);
+        var actual = board.GetCell(5, 10);
+        Assert.AreEqual(cell, actual);
+    }
+    [TestMethod]
+    public void BoardGetCellEmptyReturnsDeadCell()
+    {
+        var board = new Board();
+        var cell = board.GetCell(5, 10);
+        Assert.IsFalse(cell.IsAlive);
+        Assert.AreEqual(5, cell.Point.X);
+        Assert.AreEqual(10, cell.Point.Y);
+    }
 }
