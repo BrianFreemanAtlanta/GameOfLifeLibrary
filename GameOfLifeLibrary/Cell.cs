@@ -4,7 +4,6 @@ namespace GameOfLifeLibrary;
 
 public class Cell
 {
-    private readonly List<Cell> _neighbors;
 
     public bool IsAlive {  get; set; }
     public Location Location { get; set; }
@@ -15,7 +14,6 @@ public class Cell
     public Cell()
     {
         IsAlive = true;
-        _neighbors = [];
         Location = new Location([0], [0]);
         Point = new Point();
     }
@@ -36,16 +34,6 @@ public class Cell
         if (numberOfNeighbors == 3) return true;
         if (IsAlive && numberOfNeighbors == 2) return true;
         return false;
-    }
-
-    public int GetNumberOfNeighbors()
-    {
-        return _neighbors.Where(c=> c.IsAlive).Count();
-    }
-
-    public List<Cell> Neighbors()
-    {
-        return _neighbors;
     }
 
     public void SetNextState(int numberOfNeighbors)

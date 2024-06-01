@@ -33,28 +33,6 @@ public class CellTests
         var cell = new Cell();
         Assert.IsTrue(cell.IsAlive);
     }
-    //[TestMethod]
-    //public void NewCellHasNeighborCount0()
-    //{
-    //    var cell = new Cell();
-    //    Assert.AreEqual(0, cell.GetNumberOfNeighbors());
-    //}
-    //[TestMethod]
-    //public void CellWith1NeighborHasCount1()
-    //{
-    //    var cell = new Cell();
-    //    cell.Neighbors().Add(new Cell());
-    //    cell.GetNumberOfNeighbors();
-    //    Assert.AreEqual(1, cell.GetNumberOfNeighbors());
-    //}
-    //[TestMethod]
-    //public void CellOnlyCountsLiveNeighbors()
-    //{
-    //    var cell = new Cell();
-    //    cell.Neighbors().Add(new Cell() { IsAlive=false});
-    //    cell.GetNumberOfNeighbors();
-    //    Assert.AreEqual(0, cell.GetNumberOfNeighbors());
-    //}
     [TestMethod]
     public void CreateCellAtLocation()
     {
