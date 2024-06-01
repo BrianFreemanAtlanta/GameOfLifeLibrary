@@ -14,13 +14,9 @@ public class Board
         cellPointDictionary = new Dictionary<Point, Cell>();
     }
 
-    public List<Cell> Cells
+    public List<Cell> GetCells()
     {
-        get
-        {
-            return cells.Where(c => c.IsAlive).ToList();
-        }
-        set => cells = value;
+        return cells.Where(c => c.IsAlive).ToList();
     }
 
     public void Add(Cell cell)
