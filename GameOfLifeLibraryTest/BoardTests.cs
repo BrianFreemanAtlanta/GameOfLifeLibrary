@@ -54,6 +54,14 @@ public class BoardTests
         Assert.AreEqual(10, cell.Point.Y);
     }
     [TestMethod]
+    public void BoardGetCellEmptyAddsDeadCellToBoard()
+    {
+        var board = new Board();
+        _ = board.GetCell(5, 10);
+        var list = board.GetCells(true);
+        Assert.AreEqual(1, list.Count);
+    }
+    [TestMethod]
     public void GetCellReturnAllReturnsDeadCell()
     {
         var board = new Board();

@@ -32,7 +32,7 @@ public class Board
             return cell;
         }
         cell = new Cell(x, y, false);
-        //cellPointDictionary[cell.Point] = cell;
+        cellPointDictionary[cell.Point] = cell;
         return cell;
     }
 }
