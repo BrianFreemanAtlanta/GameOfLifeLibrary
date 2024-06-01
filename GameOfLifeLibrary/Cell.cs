@@ -1,4 +1,6 @@
-﻿namespace GameOfLifeLibrary;
+﻿using System.Drawing;
+
+namespace GameOfLifeLibrary;
 
 public class Cell
 {
@@ -6,17 +8,26 @@ public class Cell
 
     public bool IsAlive {  get; set; }
     public Location Location { get; set; }
+    public Point Point { get; set; }
     public Board? Board { get; set; }
 
     public Cell()
     {
         IsAlive = true;
         _neighbors = [];
+        Location = new Location([0], [0]);
+        Point = new Point();
     }
     public Cell(List<int> x, List<int> y)
     {
         Location = new Location(x, y);
         IsAlive = true;
+    }
+    public Cell(int  x, int y)
+    {
+        Point = new Point(x, y);
+        IsAlive = true;
+        Location = new Location([x], [y]);
     }
 
      public bool NextState(int numberOfNeighbors)
