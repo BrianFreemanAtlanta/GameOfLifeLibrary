@@ -70,5 +70,10 @@ public class CellTests
         Assert.AreEqual(10, cell.Point.X);
         Assert.AreEqual (20, cell.Point.Y);
     }
-
+    [TestMethod]
+    public void CreateDeadCellAtPoint()
+    {
+        var cell = new Cell(15, 20, false);
+        Assert.IsFalse(cell.IsAlive);
+    }
 }

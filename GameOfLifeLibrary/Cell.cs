@@ -23,14 +23,14 @@ public class Cell
         Location = new Location(x, y);
         IsAlive = true;
     }
-    public Cell(int  x, int y)
+    public Cell(int x, int y, bool isAlive = false)
     {
         Point = new Point(x, y);
-        IsAlive = true;
         Location = new Location([x], [y]);
+        IsAlive = isAlive;
     }
 
-     public bool NextState(int numberOfNeighbors)
+    public bool NextState(int numberOfNeighbors)
     {
         if (numberOfNeighbors == 3) return true;
         if (IsAlive && numberOfNeighbors == 2) return true;
