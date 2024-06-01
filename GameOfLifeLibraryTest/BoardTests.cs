@@ -70,14 +70,22 @@ public class BoardTests
         Assert.AreEqual(1, list.Count);
     }
     [TestMethod]
-    public void GetNeighborsReturnsNeighborAbove()
+    [DataRow(1, 1, 1, 2)]
+    [DataRow(1, 1, 1, 0)]
+    [DataRow(1, 1, 2, 0)]
+    [DataRow(1, 1, 2, 1)]
+    [DataRow(1, 1, 2, 2)]
+    [DataRow(1, 1, 0, 0)]
+    [DataRow(1, 1, 0, 1)]
+    [DataRow(1, 1, 0, 2)]
+    public void GetNeighborsReturnsLiveNeighbor(int cellx, int celly, int neighborx, int neighbory)
     {
-        var cell1 = new Cell(1, 1);
-        var cell2 = new Cell(1, 2);
+        var cell1 = new Cell(cellx,celly);
+        var cell2 = new Cell(neighborx, neighbory);
         var board = new Board();
         board.Add(cell1);
         board.Add(cell2);
-        var neighbors1 = board.GetNeighbors(1, 1);
+        var neighbors1 = board.GetNeighbors(cellx, celly);
         Assert.IsTrue(neighbors1.Contains(cell2));
     }
 }

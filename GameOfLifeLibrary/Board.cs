@@ -40,14 +40,14 @@ public class Board
     {
         var neighbors = new List<Cell>
         {
-            //GetCell(x, y - 1),
+            GetCell(x, y - 1),
             GetCell(x, y + 1),
-            //GetCell(x + 1, y - 1),
-            //GetCell(x + 1, y),
-            //GetCell(x + 1, y + 1),
-            //GetCell(x - 1, y - 1),
-            //GetCell(x - 1, y),
-            //GetCell(x - 1, y + 1)
+            GetCell(x + 1, y - 1),
+            GetCell(x + 1, y),
+            GetCell(x + 1, y + 1),
+            GetCell(x - 1, y - 1),
+            GetCell(x - 1, y),
+            GetCell(x - 1, y + 1)
         };
         return neighbors;
     }
