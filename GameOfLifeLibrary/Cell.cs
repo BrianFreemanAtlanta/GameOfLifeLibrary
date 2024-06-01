@@ -10,6 +10,7 @@ public class Cell
     public Location Location { get; set; }
     public Point Point { get; set; }
     public Board? Board { get; set; }
+    public bool NextState { get; set; }
 
     public Cell()
     {
@@ -30,7 +31,7 @@ public class Cell
         IsAlive = isAlive;
     }
 
-    public bool NextState(int numberOfNeighbors)
+    public bool GetNextState(int numberOfNeighbors)
     {
         if (numberOfNeighbors == 3) return true;
         if (IsAlive && numberOfNeighbors == 2) return true;
@@ -45,5 +46,10 @@ public class Cell
     public List<Cell> Neighbors()
     {
         return _neighbors;
+    }
+
+    public void SetNextState(int numberOfNeighbors)
+    {
+        NextState = GetNextState(numberOfNeighbors);
     }
 }
