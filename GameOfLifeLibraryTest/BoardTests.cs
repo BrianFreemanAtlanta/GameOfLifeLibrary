@@ -69,4 +69,15 @@ public class BoardTests
         var list = board.GetCells(true);
         Assert.AreEqual(1, list.Count);
     }
+    [TestMethod]
+    public void GetNeighborsReturnsNeighborAbove()
+    {
+        var cell1 = new Cell(1, 1);
+        var cell2 = new Cell(1, 2);
+        var board = new Board();
+        board.Add(cell1);
+        board.Add(cell2);
+        var neighbors1 = board.GetNeighbors(1, 1);
+        Assert.IsTrue(neighbors1.Contains(cell2));
+    }
 }
