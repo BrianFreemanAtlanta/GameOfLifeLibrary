@@ -95,14 +95,14 @@ public class BoardTests
     {
         var neighbors = new List<Cell>()
         {
-            new Cell(1, 2),
-            new Cell(1, 0),
-            new Cell(2, 0),
-            new Cell(2, 1),
-            new Cell(2, 2),
-            new Cell(0, 0),
-            new Cell(0, 1),
-            new Cell(0, 2),
+            new(1, 2),
+            new(1, 0),
+            new(2, 0),
+            new(2, 1),
+            new(2, 2),
+            new(0, 0),
+            new(0, 1),
+            new(0, 2),
         };
         var board = new Board();
         board.Add(new Cell(1, 1));
@@ -111,6 +111,25 @@ public class BoardTests
             board.Add(neighbor);
         }
         var actual = board.GetNeighbors(1, 1);
+        CollectionAssert.AreEquivalent(neighbors, actual);
+    }
+    [TestMethod]
+    public void GetNeighborHandlesIntXIntMax()
+    {
+        var neighbors = new List<Cell>()
+        {
+            new(int.MaxValue, 2),
+            new(int.MaxValue, 0),
+            new(int.MaxValue-1, 0),
+            new(int.MaxValue-1, 1),
+            new(int.MaxValue-1, 2),
+        };
+        var board = new Board();
+        foreach (var neighbor in neighbors)
+        {
+            board.Add(neighbor);
+        }
+        var actual = board.GetNeighbors(int.MaxValue, 1);
         CollectionAssert.AreEquivalent(neighbors, actual);
     }
     [TestMethod]
@@ -158,6 +177,24 @@ public class BoardTests
         var cell2 = new Cell(0, 0);
         board.Add(cell2);
         var cell3 = new Cell(1, 0);
+        board.Add(cell3);
+        board.SetNextStep();
+        var list = board.GetCells();
+        CollectionAssert.AreEquivalent(expected, list);
+    }
+    [TestMethod]
+    public void SetNextStepHandlesXMaxInt()
+    {
+        List<Cell> expected = [
+            new Cell(int.MaxValue -1,1),
+            new Cell(int.MaxValue,1),
+        ];
+        var board = new Board();
+        var cell = new Cell(int.MaxValue, 1);
+        board.Add(cell);
+        var cell2 = new Cell(int.MaxValue, 0);
+        board.Add(cell2);
+        var cell3 = new Cell(int.MaxValue, 2);
         board.Add(cell3);
         board.SetNextStep();
         var list = board.GetCells();

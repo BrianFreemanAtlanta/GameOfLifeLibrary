@@ -41,13 +41,19 @@ public class Board
         {
             GetCell(x, y - 1),
             GetCell(x, y + 1),
-            GetCell(x + 1, y - 1),
-            GetCell(x + 1, y),
-            GetCell(x + 1, y + 1),
+
             GetCell(x - 1, y - 1),
             GetCell(x - 1, y),
             GetCell(x - 1, y + 1)
         };
+        if(x < int.MaxValue)
+        {
+            neighbors.AddRange([
+                GetCell(x + 1, y - 1),
+                GetCell(x + 1, y),
+                GetCell(x + 1, y + 1),
+                ]);
+        }
         return neighbors;
     }
 
@@ -55,7 +61,7 @@ public class Board
     {
         List<Cell> deadCells = [];
 
-        List<Cell> values = cellPointDictionary.Values.ToList();
+        List<Cell> values = [.. cellPointDictionary.Values];
         foreach (var cell in values)
         {
             List<Cell> cells = this.GetNeighbors(cell.Point.X, cell.Point.Y);
