@@ -1,9 +1,5 @@
 @GameOfLifeApi_HostAddress = http://localhost:5279
 
-GET {{GameOfLifeApi_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
 GET {{GameOfLifeApi_HostAddress}}/board/
 Accept: application/json
 
