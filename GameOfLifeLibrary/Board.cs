@@ -50,25 +50,25 @@ public class Board
         {
             neighbors.Add(GetCell(x + 1, y));
         }
-        if (int.MinValue < x)
+        if (ValidToDecrement(x))
         {
             neighbors.Add(GetCell(x - 1, y));
         }
 
-        if (x < int.MaxValue && int.MinValue < y)
+        if (ValidToIncrement(x) && ValidToDecrement(y))
         {
             neighbors.Add(GetCell(x + 1, y - 1));
         }
 
-        if (x < int.MaxValue && y < int.MaxValue)
+        if (ValidToIncrement(x) && ValidToIncrement(y))
         {
             neighbors.Add(GetCell(x + 1, y + 1));
         }
-        if (int.MinValue < x && int.MinValue < y)
+        if (ValidToDecrement(x) && ValidToDecrement(y))
         {
             neighbors.Add(GetCell(x - 1, y - 1));
         }
-        if (int.MinValue < x && y < int.MaxValue)
+        if (ValidToDecrement(x) && ValidToIncrement(y))
         {
             neighbors.Add(GetCell(x - 1, y + 1));
         }
