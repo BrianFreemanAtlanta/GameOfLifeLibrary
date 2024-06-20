@@ -171,6 +171,25 @@ public class BoardTests
         CollectionAssert.AreEquivalent(neighbors, actual);
     }
     [TestMethod]
+    public void GetNeighborHandlesIntYMinMax()
+    {
+        var neighbors = new List<Cell>()
+        {
+            new(0 ,int.MinValue),
+            new(2 ,int.MinValue),
+            new(0 ,int.MinValue+1),
+            new(1 ,int.MinValue+1),
+            new(2 ,int.MinValue+1),
+        };
+        var board = new Board();
+        foreach (var neighbor in neighbors)
+        {
+            board.Add(neighbor);
+        }
+        var actual = board.GetNeighbors(1, int.MinValue);
+        CollectionAssert.AreEquivalent(neighbors, actual);
+    }
+    [TestMethod]
     public void SetNextStepHandles1Cell()
     {
         var board = new Board();

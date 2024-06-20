@@ -37,9 +37,10 @@ public class Board
 
     public List<Cell> GetNeighbors(int x, int y)
     {
-        var neighbors = new List<Cell>
+        var neighbors = new List<Cell>();
+        if(int.MinValue < y)
         {
-            GetCell(x, y - 1),
+            neighbors.Add(GetCell(x, y - 1));
         };
         if(y < int.MaxValue)
         {
@@ -48,9 +49,12 @@ public class Board
         if(x < int.MaxValue)
         {
             neighbors.AddRange([
-                GetCell(x + 1, y - 1),
                 GetCell(x + 1, y),
                 ]);
+            if(int.MinValue < y)
+            {
+                neighbors.Add(GetCell(x + 1, y - 1));
+            }    
             if(y < int.MaxValue)
             {
                 neighbors.Add(GetCell(x + 1, y + 1));
@@ -59,9 +63,12 @@ public class Board
         if(int.MinValue < x)
         {
             neighbors.AddRange([
-            GetCell(x - 1, y - 1),
             GetCell(x - 1, y),
                 ]);
+            if (int.MinValue < y)
+            {
+                neighbors.Add(GetCell(x - 1, y - 1));
+            }
             if(y< int.MaxValue)
             {
                 neighbors.Add(GetCell(x - 1, y + 1));
