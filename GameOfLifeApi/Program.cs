@@ -32,6 +32,7 @@ app.MapGet("/board", () =>
         {
             board.Add(new(item.X, item.Y));
         }
+        bInit=true;
     }
     var list = board.GetCells().Select(c => c.Point).ToList();
     return list;
@@ -39,7 +40,22 @@ app.MapGet("/board", () =>
 .WithName("GetBoard")
 .WithOpenApi();
 
-
+app.MapGet("/board/next", () =>
+{
+    if (!bInit)
+    {
+        foreach (var item in firstCells)
+        {
+            board.Add(new(item.X, item.Y));
+        }
+        bInit = true;
+    }
+    board.SetNextStep();
+    var list = board.GetCells().Select(c => c.Point).ToList();
+    return list;
+})
+.WithName("GetBoardNext")
+.WithOpenApi();
 
 
 

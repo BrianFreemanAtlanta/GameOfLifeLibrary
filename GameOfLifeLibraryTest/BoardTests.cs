@@ -220,6 +220,33 @@ public class BoardTests
         CollectionAssert.AreEquivalent(expected, list);
     }
     [TestMethod]
+    public void SetNextStepHandlesTwiceFlipsBack3Cells()
+    {
+        List<Cell> expected1 = [
+            new Cell(0,1),
+            new Cell(-1,1),
+            new Cell(1,1)
+        ];
+        List<Cell> expected2 = [
+            new Cell(0, 0),
+            new Cell(0, 1),
+            new Cell(0, 2),
+            ];
+        var board = new Board();
+        var cell = new Cell(0, 0);
+        board.Add(cell);
+        var cell2 = new Cell(0, 1);
+        board.Add(cell2);
+        var cell3 = new Cell(0, 2);
+        board.Add(cell3);
+        board.SetNextStep();
+        var list = board.GetCells();
+        CollectionAssert.AreEquivalent(expected1, list,"Bad First Step");
+        board.SetNextStep();
+        list = board.GetCells();
+        CollectionAssert.AreEquivalent(expected2, list, "Second Step list");
+    }
+    [TestMethod]
     public void SetNextStepHandles3CellAllLive1Birth()
     {
         List<Cell> expected = [
