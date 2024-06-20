@@ -38,15 +38,15 @@ public class Board
     public List<Cell> GetNeighbors(int x, int y)
     {
         var neighbors = new List<Cell>();
-        if(int.MinValue < y)
+        if (ValidToDecrement(y))
         {
             neighbors.Add(GetCell(x, y - 1));
         };
-        if(y < int.MaxValue)
+        if (ValidToIncrement(y))
         {
             neighbors.Add(GetCell(x, y + 1));
         }
-        if(x < int.MaxValue)
+        if (ValidToIncrement(x))
         {
             neighbors.Add(GetCell(x + 1, y));
         }
@@ -68,11 +68,21 @@ public class Board
         {
             neighbors.Add(GetCell(x - 1, y - 1));
         }
-        if (int.MinValue < x && y< int.MaxValue)
+        if (int.MinValue < x && y < int.MaxValue)
         {
             neighbors.Add(GetCell(x - 1, y + 1));
         }
         return neighbors;
+    }
+
+    private static bool ValidToIncrement(int value)
+    {
+        return value < int.MaxValue;
+    }
+
+    private static bool ValidToDecrement(int value)
+    {
+        return int.MinValue < value;
     }
 
     public void SetNextStep()
