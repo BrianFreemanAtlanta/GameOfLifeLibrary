@@ -33,20 +33,14 @@ public class CellTests
         var cell = new Cell();
         Assert.IsTrue(cell.IsAlive);
     }
-    [TestMethod]
-    public void CreateCellAtLocation()
-    {
-        var x = new List<int>() { 10 };
-        var y = new List<int>() { 20 };
-        var cell = new Cell(x,y);
-        Assert.AreEqual(x, cell.Location.X);
-    }
+
     [TestMethod]
     public void CreateCellAtPoint()
     {
         var cell = new Cell(10, 20);
         Assert.AreEqual(10, cell.Point.X);
         Assert.AreEqual (20, cell.Point.Y);
+        Assert.IsTrue(cell.IsAlive);
     }
     [TestMethod]
     public void CreateDeadCellAtPoint()

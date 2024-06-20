@@ -27,12 +27,11 @@ public class Board
     public Cell GetCell(int x, int y)
     {
         var point = new Point(x, y);
-        if (cellPointDictionary.TryGetValue(point, out Cell? cell))
+        if (!cellPointDictionary.TryGetValue(point, out Cell? cell))
         {
+            cell = new Cell(x, y, false);
             return cell;
         }
-        cell = new Cell(x, y, false);
-        cellPointDictionary[cell.Point] = cell;
         return cell;
     }
 
@@ -50,5 +49,30 @@ public class Board
             GetCell(x - 1, y + 1)
         };
         return neighbors;
+    }
+
+    public void SetNextStep()
+    {
+        List<Cell> deadCells = [];
+
+        List<Cell> values = cellPointDictionary.Values.ToList();
+        foreach (var cell in values)
+        {
+            List<Cell> cells = this.GetNeighbors(cell.Point.X, cell.Point.Y);
+            cell.SetNextState(cells.Where(c => c.IsAlive).Count());
+            foreach (var item in cells.Where(c => !c.IsAlive))
+            {
+
+                List<Cell> neighbors = this.GetNeighbors(item.Point.X, item.Point.Y);
+                item.SetNextState(neighbors.Where(c => c.IsAlive).Count());
+                if (item.NextState)
+                {
+                    this.Add(item);
+                }
+            }
+        }
+
+        foreach (var cell in cellPointDictionary.Values)
+            cell.IsAlive = cell.NextState;
     }
 }

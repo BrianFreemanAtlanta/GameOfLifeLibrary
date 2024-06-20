@@ -6,7 +6,6 @@ public class Cell
 {
 
     public bool IsAlive {  get; set; }
-    public Location Location { get; set; }
     public Point Point { get; set; }
     public Board? Board { get; set; }
     public bool NextState { get; set; }
@@ -14,18 +13,11 @@ public class Cell
     public Cell()
     {
         IsAlive = true;
-        Location = new Location([0], [0]);
         Point = new Point();
     }
-    public Cell(List<int> x, List<int> y)
-    {
-        Location = new Location(x, y);
-        IsAlive = true;
-    }
-    public Cell(int x, int y, bool isAlive = false)
+    public Cell(int x, int y, bool isAlive = true)
     {
         Point = new Point(x, y);
-        Location = new Location([x], [y]);
         IsAlive = isAlive;
     }
 
@@ -39,5 +31,23 @@ public class Cell
     public void SetNextState(int numberOfNeighbors)
     {
         NextState = GetNextState(numberOfNeighbors);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Cell cell &&
+               IsAlive == cell.IsAlive &&
+               Point.Equals(cell.Point);
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(IsAlive, Point);
+    }
+
+    public override string? ToString()
+    {
+        return $"cell ({Point}) " + (IsAlive ? "" : "Dead");
+        //return base.ToString();
     }
 }

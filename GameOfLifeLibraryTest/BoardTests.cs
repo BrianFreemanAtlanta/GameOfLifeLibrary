@@ -1,5 +1,6 @@
 ﻿using GameOfLifeLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameOfLifeLibraryTest;
 
@@ -54,12 +55,13 @@ public class BoardTests
         Assert.AreEqual(10, cell.Point.Y);
     }
     [TestMethod]
-    public void BoardGetCellEmptyAddsDeadCellToBoard()
+    public void BoardGetCellEmptReturnsDeadCell()
     {
         var board = new Board();
-        _ = board.GetCell(5, 10);
-        var list = board.GetCells(true);
-        Assert.AreEqual(1, list.Count);
+        var cell = board.GetCell(5, 10);
+        Assert.IsFalse(cell.IsAlive);
+        Assert.AreEqual(5, cell.Point.X);
+        Assert.AreEqual (10, cell.Point.Y);
     }
     [TestMethod]
     public void GetCellReturnAllReturnsDeadCell()
@@ -110,5 +112,55 @@ public class BoardTests
         }
         var actual = board.GetNeighbors(1, 1);
         CollectionAssert.AreEquivalent(neighbors, actual);
+    }
+    [TestMethod]
+    public void SetNextStepHandles1Cell()
+    {
+        var board = new Board();
+        var cell = new Cell(1, 1);
+        board.Add(cell);
+        board.SetNextStep();
+        var list = board.GetCells();
+        Assert.AreEqual(0, list.Count);
+    }
+    [TestMethod]
+    public void SetNextStepHandles3Cell()
+    {
+        List<Cell> expected = [ 
+            new Cell(0,1),
+            new Cell(-1,1),
+            new Cell(1,1)
+        ];
+        var board = new Board();
+        var cell = new Cell(0, 0);
+        board.Add(cell);
+        var cell2 = new Cell(0, 1);
+        board.Add(cell2);
+        var cell3 = new Cell(0, 2);
+        board.Add(cell3);
+        board.SetNextStep();
+        var list = board.GetCells();
+//        Assert.AreEqual(1, list.Count);
+        CollectionAssert.AreEquivalent(expected, list);
+    }
+    [TestMethod]
+    public void SetNextStepHandles3CellAllLive1Birth()
+    {
+        List<Cell> expected = [
+            new Cell(0,1),
+            new Cell(0,0),
+            new Cell(1,0),
+            new Cell(1,1),
+        ];
+        var board = new Board();
+        var cell = new Cell(0, 1);
+        board.Add(cell);
+        var cell2 = new Cell(0, 0);
+        board.Add(cell2);
+        var cell3 = new Cell(1, 0);
+        board.Add(cell3);
+        board.SetNextStep();
+        var list = board.GetCells();
+        CollectionAssert.AreEquivalent(expected, list);
     }
 }
