@@ -40,23 +40,32 @@ public class Board
         var neighbors = new List<Cell>
         {
             GetCell(x, y - 1),
-            GetCell(x, y + 1),
         };
+        if(y < int.MaxValue)
+        {
+            neighbors.Add(GetCell(x, y + 1));
+        }
         if(x < int.MaxValue)
         {
             neighbors.AddRange([
                 GetCell(x + 1, y - 1),
                 GetCell(x + 1, y),
-                GetCell(x + 1, y + 1),
                 ]);
+            if(y < int.MaxValue)
+            {
+                neighbors.Add(GetCell(x + 1, y + 1));
+            }
         }
         if(int.MinValue < x)
         {
             neighbors.AddRange([
             GetCell(x - 1, y - 1),
             GetCell(x - 1, y),
-            GetCell(x - 1, y + 1)
                 ]);
+            if(y< int.MaxValue)
+            {
+                neighbors.Add(GetCell(x - 1, y + 1));
+            }
         }
         return neighbors;
     }

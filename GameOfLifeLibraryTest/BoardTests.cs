@@ -152,6 +152,25 @@ public class BoardTests
         CollectionAssert.AreEquivalent(neighbors, actual);
     }
     [TestMethod]
+    public void GetNeighborHandlesIntYMaxMax()
+    {
+        var neighbors = new List<Cell>()
+        {
+            new(0 ,int.MaxValue),
+            new(2 ,int.MaxValue),
+            new(0 ,int.MaxValue-1),
+            new(1 ,int.MaxValue-1),
+            new(2 ,int.MaxValue-1),
+        };
+        var board = new Board();
+        foreach (var neighbor in neighbors)
+        {
+            board.Add(neighbor);
+        }
+        var actual = board.GetNeighbors(1, int.MaxValue);
+        CollectionAssert.AreEquivalent(neighbors, actual);
+    }
+    [TestMethod]
     public void SetNextStepHandles1Cell()
     {
         var board = new Board();
