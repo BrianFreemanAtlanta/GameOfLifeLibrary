@@ -41,10 +41,6 @@ public class Board
         {
             GetCell(x, y - 1),
             GetCell(x, y + 1),
-
-            GetCell(x - 1, y - 1),
-            GetCell(x - 1, y),
-            GetCell(x - 1, y + 1)
         };
         if(x < int.MaxValue)
         {
@@ -52,6 +48,14 @@ public class Board
                 GetCell(x + 1, y - 1),
                 GetCell(x + 1, y),
                 GetCell(x + 1, y + 1),
+                ]);
+        }
+        if(int.MinValue < x)
+        {
+            neighbors.AddRange([
+            GetCell(x - 1, y - 1),
+            GetCell(x - 1, y),
+            GetCell(x - 1, y + 1)
                 ]);
         }
         return neighbors;
