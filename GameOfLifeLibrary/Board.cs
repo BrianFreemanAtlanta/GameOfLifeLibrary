@@ -46,44 +46,31 @@ public class Board
         {
             neighbors.Add(GetCell(x, y + 1));
         }
-        
         if(x < int.MaxValue)
         {
             neighbors.Add(GetCell(x + 1, y));
         }
-
-        if (x < int.MaxValue)
-        {
-            if (int.MinValue < y)
-            {
-                neighbors.Add(GetCell(x + 1, y - 1));
-            }
-        }
-
-        if (x < int.MaxValue)
-        {
-            if (y < int.MaxValue)
-            {
-                neighbors.Add(GetCell(x + 1, y + 1));
-            }
-        }
-        if(int.MinValue < x)
+        if (int.MinValue < x)
         {
             neighbors.Add(GetCell(x - 1, y));
         }
-        if (int.MinValue < x)
+
+        if (x < int.MaxValue && int.MinValue < y)
         {
-            if (int.MinValue < y)
-            {
-                neighbors.Add(GetCell(x - 1, y - 1));
-            }
+            neighbors.Add(GetCell(x + 1, y - 1));
         }
-        if (int.MinValue < x)
+
+        if (x < int.MaxValue && y < int.MaxValue)
         {
-            if (y< int.MaxValue)
-            {
-                neighbors.Add(GetCell(x - 1, y + 1));
-            }
+            neighbors.Add(GetCell(x + 1, y + 1));
+        }
+        if (int.MinValue < x && int.MinValue < y)
+        {
+            neighbors.Add(GetCell(x - 1, y - 1));
+        }
+        if (int.MinValue < x && y< int.MaxValue)
+        {
+            neighbors.Add(GetCell(x - 1, y + 1));
         }
         return neighbors;
     }
