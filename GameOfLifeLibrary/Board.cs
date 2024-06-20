@@ -50,11 +50,19 @@ public class Board
         if(x < int.MaxValue)
         {
             neighbors.Add(GetCell(x + 1, y));
-            if(int.MinValue < y)
+        }
+
+        if (x < int.MaxValue)
+        {
+            if (int.MinValue < y)
             {
                 neighbors.Add(GetCell(x + 1, y - 1));
-            }    
-            if(y < int.MaxValue)
+            }
+        }
+
+        if (x < int.MaxValue)
+        {
+            if (y < int.MaxValue)
             {
                 neighbors.Add(GetCell(x + 1, y + 1));
             }
@@ -62,11 +70,17 @@ public class Board
         if(int.MinValue < x)
         {
             neighbors.Add(GetCell(x - 1, y));
+        }
+        if (int.MinValue < x)
+        {
             if (int.MinValue < y)
             {
                 neighbors.Add(GetCell(x - 1, y - 1));
             }
-            if(y< int.MaxValue)
+        }
+        if (int.MinValue < x)
+        {
+            if (y< int.MaxValue)
             {
                 neighbors.Add(GetCell(x - 1, y + 1));
             }
