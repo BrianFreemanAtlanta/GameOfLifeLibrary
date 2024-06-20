@@ -46,11 +46,10 @@ public class Board
         {
             neighbors.Add(GetCell(x, y + 1));
         }
+        
         if(x < int.MaxValue)
         {
-            neighbors.AddRange([
-                GetCell(x + 1, y),
-                ]);
+            neighbors.Add(GetCell(x + 1, y));
             if(int.MinValue < y)
             {
                 neighbors.Add(GetCell(x + 1, y - 1));
@@ -62,9 +61,7 @@ public class Board
         }
         if(int.MinValue < x)
         {
-            neighbors.AddRange([
-            GetCell(x - 1, y),
-                ]);
+            neighbors.Add(GetCell(x - 1, y));
             if (int.MinValue < y)
             {
                 neighbors.Add(GetCell(x - 1, y - 1));
