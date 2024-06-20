@@ -1,3 +1,6 @@
+using GameOfLifeLibrary;
+using System.Drawing;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,7 +23,9 @@ var summaries = new[]
 {
     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
 };
-
+var board = new Board();
+List<Point> firstCells = [new(0, 0), new(1, 0), new(2, 0)];
+var bInit = false;
 app.MapGet("/weatherforecast", () =>
 {
     var forecast = Enumerable.Range(1, 5).Select(index =>
@@ -36,6 +41,20 @@ app.MapGet("/weatherforecast", () =>
 .WithName("GetWeatherForecast")
 .WithOpenApi();
 
+app.MapGet("/board", () =>
+{
+    if (!bInit)
+    {
+        foreach (var item in firstCells)
+        {
+            board.Add(new(item.X, item.Y));
+        }
+    }
+    var list = board.GetCells().Select(c => c.Point).ToList();
+    return list;
+})
+.WithName("GetBoard")
+.WithOpenApi();
 app.Run();
 
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
