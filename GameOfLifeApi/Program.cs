@@ -57,6 +57,18 @@ app.MapGet("/board/next", () =>
 .WithName("GetBoardNext")
 .WithOpenApi();
 
+app.MapPut("/board/cells", (Point[] locations) =>
+{
+    foreach (var location in locations)
+    {
+        board.Add(new Cell(location.X, location.Y));
+    }
+    
+    var list = board.GetCells().Select(c => c.Point).ToList();
+    return list;
+})
+.WithName("PutBoardCells")
+.WithOpenApi();
 
 
 app.Run();
