@@ -70,6 +70,19 @@ app.MapPut("/board/cells", (Point[] locations) =>
 .WithName("PutBoardCells")
 .WithOpenApi();
 
+app.MapPost("/board", (Point[] locations) =>
+{
+    board = new Board();
+    foreach (var location in locations)
+    {
+        board.Add(new Cell(location.X, location.Y));
+    }
+
+    var list = board.GetCells().Select(c => c.Point).ToList();
+    return list;
+})
+.WithName("PostBoard")
+.WithOpenApi();
 
 app.Run();
 
