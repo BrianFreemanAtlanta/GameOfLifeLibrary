@@ -1,0 +1,11 @@
+<main class="main">
+  <div class="title">
+      <h1>{{ title }}</h1>
+      <button (click)="drawBoard()">Draw</button>
+  </div>
+  <div class ="boardregion">
+    <canvas class="board" id="board" width="1000" height="500"></canvas>
+  </div>
+<main>
+
+<router-outlet />

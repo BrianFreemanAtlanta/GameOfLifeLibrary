@@ -1,0 +1,9 @@
+.main {
+ border: 1px solid red;
+ height: 90%;
+}
+.boardregion {
+  width: 90%;
+  height: 90%;
+  border: 1px solid red;
+}
