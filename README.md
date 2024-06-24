@@ -14,7 +14,6 @@ a.	Breaks rule that “read” does not have side effects
 9.	Realized as designed would need “special” handling for dead cells
 10.	Realized I did rookie mistake and started into my TDD solution without breaking project down into tasks and MVP iterative solutions for fast feedback
 11.	Step back regroup
-
 ## Ultimate Goal:
 - Full web representation of Conway’s Game of Life
     - Handle “infinite grid”
@@ -28,7 +27,6 @@ a.	Breaks rule that “read” does not have side effects
 - Simple UI to input starting cells, or start from catalog of interesting patterns, perhaps shape combiner for pattern to start, perhaps “drawing” capabilities for starting pattern
 - Zoom in/out capabilities and “pan” functionality.
 - Perhaps change color patterns for UI (cell colors, “dark” mode??)
-
 ## Let’s start with defining a first round MVP
 1.	Cells are on an integer coordinate system
 2.	Cells that leave boundaries are “lost” and die

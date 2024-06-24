@@ -11,11 +11,11 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'Conways Game Of Life';
   drawBoard(){
-    console.log('drawing');
     const canvas: any  = document.getElementById("board");
-    console.log(canvas);
     const ctx = canvas.getContext("2d");
     ctx.fillRect(0, 0, 150, 75);
-    console.log(ctx);
+    ctx.fillRect(200,10,2,2);
+    ctx.fillRect(202,10,2,2);
+    ctx.fillRect(204,10,2,2);
   }
 }
