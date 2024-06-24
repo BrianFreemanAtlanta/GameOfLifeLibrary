@@ -3,6 +3,12 @@
       <h1>{{ title }}</h1>
       <p>Screen Width is: {{getScreenWidth}} Height is: {{getScreenHeight}}</p>
       <p>Zoom factor is: <input type="number" [(ngModel)]="zoomFactor" ></p>
+      <ul>
+
+        @for (cell of cells; track $index; let idx = $index) {
+          <li>Cell #{{idx}}: ({{cell.x}}, {{cell.y}})</li>
+        }
+      </ul>
       <button (click)="drawBoard()">Draw</button>
   </div>
   <div class ="boardregion">

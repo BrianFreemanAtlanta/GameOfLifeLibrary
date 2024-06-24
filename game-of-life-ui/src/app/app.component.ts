@@ -55,15 +55,6 @@ export class AppComponent {
     )
   }
   getCanvasPoint(p: point){
-    let xCenter = this.boardWidth/2;
-    let xOffset = xCenter/this.zoomFactor;
-    let yCenter = this.boardHeight/2;
-    let yOffset = yCenter/this.zoomFactor;
-    let newX = p.x + xOffset;
-    let newY = p.y + yOffset;
-    let drawX = newX * this.zoomFactor;
-    let drawY = newY * this.zoomFactor;
-    let fullX = (p.x + this.boardWidth/2/this.zoomFactor) * this.zoomFactor
     return {
         x: p.x * this.zoomFactor + (this.boardWidth/2), 
         y: p.y * this.zoomFactor + (this.boardHeight/2)
