@@ -2,7 +2,14 @@ using GameOfLifeLibrary;
 using System.Drawing;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//CORS?
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddCors(options =>
+        options.AddDefaultPolicy(
+            policy =>
+            policy.WithOrigins("http://localhost:4200").AllowAnyOrigin()));
+}
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -15,6 +22,7 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors();
 }
 
 app.UseHttpsRedirection();

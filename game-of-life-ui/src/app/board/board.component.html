@@ -1,0 +1,21 @@
+<main class="main">
+  <div class="title">
+      <h1>{{ title }}</h1>
+      <p>Screen Width is: {{getScreenWidth}} Height is: {{getScreenHeight}}</p>
+      <p>Zoom factor is: <input type="number" [(ngModel)]="zoomFactor" ></p>
+      <ul>
+
+        @for (cell of cells; track $index; let idx = $index) {
+          <li> {{cell.x}}, {{cell.y}} 
+            <app-cell-entry [index]="idx" [(point)]="cells[idx]"></app-cell-entry>
+           </li>
+        }
+      </ul>
+      <button (click)="addCell()">Add Cell</button>
+      <button (click)="drawBoard()">Draw</button>
+  </div>
+  <div class ="boardregion">
+    <canvas class="board" id="board" [width]="boardWidth" [height]="boardHeight"></canvas>
+  </div>
+<main>
+
