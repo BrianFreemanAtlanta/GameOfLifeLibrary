@@ -8,7 +8,10 @@ if (builder.Environment.IsDevelopment())
     builder.Services.AddCors(options =>
         options.AddDefaultPolicy(
             policy =>
-            policy.WithOrigins("http://localhost:4200").AllowAnyOrigin()));
+            policy.WithOrigins("http://localhost:4200").AllowAnyOrigin()
+            .AllowAnyHeader()
+            )
+        );
 }
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
